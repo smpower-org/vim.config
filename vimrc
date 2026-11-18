@@ -54,7 +54,7 @@ let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 
 Plugin 'scrooloose/syntastic'
-execute pathogen#infect()
+" execute pathogen#infect()
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -68,19 +68,33 @@ let g:syntastic_javascript_checkers = ['javascript', 'jsx']
 
 Plugin 'airblade/vim-gitgutter'
 
-" Plugin 'vim-airline/vim-airline'
-" let g:airline_powerline_fonts = 1
+Plugin 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
 " 是否启用顶部 tabline
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 " 顶部tabline显示方式
 " let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" Plugin 'vim-airline/vim-airline-themes'
-" let g:airline_theme='bubblegum'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme='bubblegum'
+
+Plugin 'NLKNguyen/papercolor-theme'
+set t_Co=256   " This is may or may not needed.
+set background=light
 
 " Plugin 'majutsushi/tagbar'
 " map <F3> :TagbarToggle<CR>
+
+Plugin 'flowtype/vim-flow'
+let g:flow#enable=1 " 保存后自动检查
+let g:flow#errjmp=1 " 跳到错误处
+let g:flow#timeout=4 " 延时加载该插件
+
+Plugin 'Quramy/tsuquyomi'  " vim plugin for typescript
+
+Plugin 'lervag/vimtex'  " Latex
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -99,7 +113,9 @@ filetype plugin indent on    " required
 
 " 主题设置
 " colorscheme monokai
-colorscheme onedark
+" colorscheme onedark
+" set background=light
+colorscheme PaperColor
 
 hi Normal ctermfg=252 ctermbg=none
 
@@ -111,7 +127,7 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 " 解决 console 输出乱码
-language messages zh_CN.utf-8
+" language messages zh_CN.utf-8
 
 " 设置文字及字体
 set guifont=Hack\ 11
@@ -121,10 +137,10 @@ syntax enable
 syntax on
 
 " 自动缩进
-set autoindent
+" set autoindent
 
 " 智能缩进, 开启新行时使用
-set smartindent
+" set smartindent
 
 " 设置(软)制表符的宽度为 2
 " set tabstop=2
